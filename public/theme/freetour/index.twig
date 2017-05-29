@@ -1,5 +1,12 @@
 {% extends 'partials/_master.twig' %}
 
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ bundler('js/main.js') }}"></script>
+{% endblock js %}
+
+
 {% block main %}
     {{ include('partials/_header.twig') }}
     {{ include('partials/_banner.twig') }}

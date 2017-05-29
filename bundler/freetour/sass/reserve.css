@@ -179,6 +179,24 @@
     .calendar .image {
         background-position:-19px -12px;
     }
+}
+
+@media screen and (max-width: 605px) {
+    .calendar .image {
+        display: none;
+    }
+
+    .calendar .content {
+        margin: 0 1em 0 1em;
+    }
+
+    #reserve .info {
+        padding: 1em 1em;
+    }
+
+    #reserve .widget{
+        padding: 1em 1em;
+    }
 
 }
 
