@@ -1,0 +1,201 @@
+{% extends 'partials/_master.twig' %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ bundler('js/form.js') }}"></script>
+    {#<script type="text/javascript" src="{{ asset('js/jquery.form-validator.js', 'theme') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('js/pickadate/legacy.js', 'theme') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('js/pickadate/picker.js', 'theme') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('js/pickadate/picker.date.js', 'theme') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('js/pickadate/picker.time.js', 'theme') }}"></script>#}
+    {% if lang == 'es' %}
+        <script type="text/javascript" src="{{ asset('js/pickadate/translations/es_ES.js', 'theme') }}"></script>
+    {% endif %}
+
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function () {
+            $('.datepicker').pickadate({
+                min: {{ tomorrow | json_encode | raw }},
+                disable: {{ disables| json_encode | raw }},
+                onSet: function (context) {
+                    var select = new Date(context.select);
+                    var first = new Date();
+
+                    first.setYear(select.getFullYear());
+                    first.setDate({{ app.config.get('general/reserves/summer/from/d') }});
+                    first.setMonth({{ app.config.get('general/reserves/summer/from/m') }} -1);
+
+                    var last = new Date();
+                    last.setYear(select.getFullYear());
+                    last.setDate({{ app.config.get('general/reserves/summer/to/d') }});
+                    last.setMonth({{ app.config.get('general/reserves/summer/to/m') }} -1);
+
+                    //dia de la semana
+                    var day = select.getDay();
+
+                    if (day > 0 && day < 6 && first <= select && select <= last) {
+                        $('#form-time').removeAttr('disabled');
+                    }
+                    else {
+                        $("#form-time").get(0).selectedIndex = 0;
+                        $('#form-time').attr('disabled', 'disabled');
+                    }
+                }
+            });
+
+            $.validate({
+                lang: '{{ lang }}'
+            });
+        });
+        //]]>
+    </script>
+{% endblock js %}
+
+{% block main %}
+    {{ include('partials/_nav.twig') }}
+
+    <div id="reserve">
+
+        <!-- Banner -->
+        <section class="info">
+            <article class="col">
+                <div class="card calendar">
+                    {% set calendar = app.paths['theme']~ 'css/images/calendar.jpg' %}
+                    <div class="image icon-calendar"></div>
+                    <div class="content">
+                        <p class="period">
+                            {{ l('calendar_winter_1') }}
+                        </p>
+                        <table>
+                            <tr>
+                                <td>{{ l('monday') }}</td>
+                                <td>{{ l('tuesday') }}</td>
+                                <td>{{ l('wednesday') }}</td>
+                                <td>{{ l('thursday') }}</td>
+                                <td>{{ l('friday') }}</td>
+                                <td>{{ l('saturday') }}</td>
+                                <td>{{ l('sunday') }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="7"><strong>12:00h</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card calendar">
+                    {% set calendar = app.paths['theme']~ 'css/images/calendar.jpg' %}
+                    <div class="image icon-calendar"></div>
+                    <div class="content">
+                        <p class="period">
+                            {{ l('calendar_summer_1') }}
+                        </p>
+                        <table>
+                            <tr>
+                                <td>{{ l('monday') }}</td>
+                                <td>{{ l('tuesday') }}</td>
+                                <td>{{ l('wednesday') }}</td>
+                                <td>{{ l('thursday') }}</td>
+                                <td>{{ l('friday') }}</td>
+                                <td>{{ l('saturday') }}</td>
+                                <td>{{ l('sunday') }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5"><strong>12:00h / 19:00h</strong></td>
+                                <td colspan="2"><strong>12:00h</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card calendar">
+                    {% set calendar = app.paths['theme']~ 'css/images/calendar.jpg' %}
+                    <div class="image icon-calendar"></div>
+                    <div class="content">
+                        <p class="period">
+                            {{ l('calendar_winter_1') }}
+                        </p>
+                        <table>
+                            <tr>
+                                <td>{{ l('monday') }}</td>
+                                <td>{{ l('tuesday') }}</td>
+                                <td>{{ l('wednesday') }}</td>
+                                <td>{{ l('thursday') }}</td>
+                                <td>{{ l('friday') }}</td>
+                                <td>{{ l('saturday') }}</td>
+                                <td>{{ l('sunday') }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="7"><strong>12:00h</strong></td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </article>
+            <article class="col card">
+                <p class="desc">
+                    <strong>{{ l('meet point_label') }}</strong>
+                    <span>{{ l('meet point') }}</span>
+                    <a href="{{ app.config.get('general/reserves/meeting/url') }}" target="_blank"
+                       class="icon fa-map-marker marker">
+                        <span class="label">Marker</span>
+                    </a>
+                </p>
+
+                <a id="map" target="_blank" href="{{ app.config.get('general/reserves/meeting/url') }}"></a>
+            </article>
+            <br class="clear"/>
+        </section>
+
+        <div class="widget">
+            <h2>{{ l('reserve_title') }}</h2>
+
+            {% if messages.success | length %}
+                <div class="flash flash-success">
+                    {% for msg in messages.success %}
+                        {{ l(msg) }} <br/>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+
+            <form method="post" action="#">
+                <ul>
+                    <li>
+                        <label for="form-name" class="required">{{ l('form_name_label') }}</label>
+                        <input id="form-name" type="text" name="name" placeholder="{{ l('form_name_placeholder') }}"
+                               data-validation="required"/>
+                    </li>
+                    <li>
+                        <label for="form-contact">{{ l('form_contact_label') }}</label>
+                        <input id="form-contact" type="text" name="contact"
+                               placeholder="{{ l('form_contact_placeholder') }}"/>
+                    </li>
+
+                    <li>
+                        <label for="form-date" class="required">{{ l('form_date_label') }}</label>
+                        <input id="form-date" class="datepicker" type="text" name="date"
+                               placeholder="{{ l('form_date_placeholder') }}" data-validation="required"/>
+                    </li>
+
+                    <li>
+                        <label for="form-time" class="required">{{ l('form_time_label') }}</label>
+                        <select id="form-time" name="time" data-validation="required" disabled="disabled">
+                            <option value="12:00">12:00h</option>
+                            <option value="19:00">19:00h</option>
+                        </select>
+                    </li>
+
+                    <li class="submit">
+                        <input type="submit" name="submit" value="{{ l('form_submit_label') }}"/>
+                    </li>
+                </ul>
+
+            </form>
+        </div>
+    </div>
+    <br class="clear"/>
+{% endblock main %}

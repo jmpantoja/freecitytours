@@ -1,0 +1,28 @@
+{% extends 'partials/_master.twig' %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('js/modernizr.custom.js', 'theme') }}"></script>
+    <script src="{{ asset('js/grid.js', 'theme') }}"></script>
+    <script>
+
+    </script>
+{% endblock js %}
+
+{% block main %}
+    {{ include('partials/_nav.twig') }}
+
+    <div id="places">
+        <ul id="og-grid" class="og-grid">
+{% for photo in photos %}
+            <li>
+                <a class="thumb" href="#" data-largesrc="{{ thumbnail(photo.image, 400, 400) }}" data-title="{{ photo.title }}" data-description="{{ photo.description }}">
+                    <img src="{{ thumbnail(photo.image, 250, 250) }}" alt="{{ photo.title }}"/>
+                </a>
+            </li>
+{% endfor %}
+        </ul>
+
+    </div>
+    </div>
+{% endblock main %}

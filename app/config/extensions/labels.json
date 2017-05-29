@@ -1,0 +1,114 @@
+{
+    "calendar_summer_1": {
+        "en": "From june 15th to september 15th",
+        "es": "Del 15 de junio al 15 de septiembre"
+    },
+    "calendar_winter_1": {
+        "en": "From march 1th to june 15th",
+        "es": "Del 1 de marzo al 15 de junio"
+    },
+    "calendar_winter_2": {
+        "en": "From september 15th to octuber 31th",
+        "es": "Del 15 de septiembre al 31 de octubre"
+    },
+    "description": {
+        "en": "Jerez is a wonderful city with a long history you will discover with our tour guides. An hour and a half walk that gets short when going all over the history of its main monuments, its culture, the wine and its most notable characteres. This is an ideal route for one-day tourists or for those interested in getting a general impression of the city before starting their holidays.",
+        "es": "Jerez es una ciudad marivillosa con mucha historia que nuestros guías te ayudarán a descubrir. Un paseo de una hora y media que se hará corto recorriendo la historia de los principales monumentos, su cultura, el vino y sus personajes más insignes. Esta ruta es ideal para quien tiene poco tiempo o quien quiere hacerse una idea general de la ciudad antes de empezar sus vacaciones"
+    },
+    "form_contact_label": {
+        "en": "Contact:",
+        "es": "Contacto:"
+    },
+    "form_contact_placeholder": {
+        "en": "email or contact phone",
+        "es": "email o teléfono de contacto"
+    },
+    "form_date_label": {
+        "en": "Date:",
+        "es": "Fecha:"
+    },
+    "form_date_placeholder": {
+        "en": "Select a date",
+        "es": "Seleccione una fecha"
+    },
+    "form_name_label": {
+        "en": "Name:",
+        "es": "Nombre:"
+    },
+    "form_name_placeholder": {
+        "en": "Name of person booking",
+        "es": "Nombre de la persona que reserva"
+    },
+    "form_submit_label": {
+        "en": "Reserve now",
+        "es": "Reservar ahora"
+    },
+    "form_success": {
+        "en": "Reservation made successfully",
+        "es": "Reserva realizada con exito"
+    },
+    "form_time_label": {
+        "en": "Time:",
+        "es": "Hora:"
+    },
+    "friday": {
+        "en": "F",
+        "es": "V"
+    },
+    "meet point": {
+        "en": "in Tourist Office of Arenal Square",
+        "es": "en la Oficina de turismo de la Plaza del Arenal"
+    },
+    "meet point_label": {
+        "en": "Meeting Point ",
+        "es": "Punto de encuentro"
+    },
+    "monday": {
+        "en": "M",
+        "es": "L"
+    },
+    "reserve_title": {
+        "en": "Reserve now",
+        "es": "Reserva ahora"
+    },
+    "saturday": {
+        "en": "S",
+        "es": "S"
+    },
+    "slogan": {
+        "en": "Discover Jerez",
+        "es": "Descubre Jerez"
+    },
+    "start": {
+        "en": "Start",
+        "es": "Inicio"
+    },
+    "sunday": {
+        "en": "Sn",
+        "es": "D"
+    },
+    "thursday": {
+        "en": "Th",
+        "es": "J"
+    },
+    "title": {
+        "en": "Hi!, Welcome to Jerez",
+        "es": "¡Hola!, Bienvenidos a Jerez"
+    },
+    "tuesday": {
+        "en": "T",
+        "es": "M"
+    },
+    "wednesday": {
+        "en": "W",
+        "es": "X"
+    },
+    "weekend": {
+        "en": "Saturdays and Sundays at",
+        "es": "Sábados y Domingos a las"
+    },
+    "workdays": {
+        "en": "From Monday to Friday",
+        "es": "De Lunes a Viernes"
+    }
+}

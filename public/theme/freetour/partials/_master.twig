@@ -1,0 +1,39 @@
+{% set lang = app.paths.current|split('/')[3] %}
+
+{% if lang not in ['en', 'es'] %}
+    {% set lang = 'es' %}
+{% endif %}
+{{ setlanguage(lang) }}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{{ app.config.get('general/sitename') -}}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    {% block css %}
+        <!--[if lte IE 8]>
+        <script src="{{ asset('js/ie/html5shiv.js', 'theme') }}"></script><![endif]-->
+
+        <link rel="stylesheet" href="{{ bundler('css/vendor.css') }}"/>
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="{{ asset('css/ie8.css', 'theme') }}"/><![endif]-->
+    {% endblock css %}
+</head>
+<body class="homepage">
+<div id="page-wrapper">
+
+    {% block main %}{% endblock main %}
+
+    {{ include('partials/_footer.twig') }}
+
+</div>
+
+{% block js %}
+    <script type="text/javascript" src="{{ bundler('js/vendor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/skel.min.js', 'theme') }}"></script>
+    {#<!--[if lte IE 8]><script type="text/javascript" src="{{ asset('js/ie/respond.min.js', 'theme') }}"></script><![endif]-->#}
+    <script type="text/javascript" src="{{ bundler('js/main.js') }}"></script>
+{% endblock js %}
+
+</body>
+</html>

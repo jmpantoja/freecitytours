@@ -1,0 +1,13 @@
+{% spaceless %}
+    {% set route = app.request.get('_route') | split('-')[1] %}
+    <!-- Nav -->
+    <nav id="nav" class="mini-nav">
+        {{ menu(lang ~ '-main', 'partials/_menu.twig') }}
+    </nav>
+    <nav id="lang">
+        <ul class="selector">
+            <li><a class="icon-ES" href="{{ url('es-' ~ route) }}"><span>es</span></a></li>
+            <li><a class="icon-GB" href="{{ url('en-' ~ route) }}"><span>en</span></a></li>
+        </ul>
+    </nav>
+{% endspaceless %}

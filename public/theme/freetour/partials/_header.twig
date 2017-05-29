@@ -1,0 +1,28 @@
+
+<!-- Header -->
+<div id="header">
+    <!-- Inner -->
+    <div class="inner">
+        <header>
+            <h1><a href="{{ url('homepage') }}" id="logo"><p>{{ app.config.get('theme/title') }}</p></a></h1>
+            <a href="{{ url(lang ~ '-reserve') }}" class="button button-square">{{ l('reserve_title') }}</a>
+            <hr />
+            <p>{{ l('slogan') }}</p>
+        </header>
+        <footer>
+            <a href="#banner" class="button circled scrolly">{{ l('start') }}</a>
+        </footer>
+    </div>
+
+    <!-- Nav -->
+    <nav id="nav">
+        {{ menu(lang ~ '-main', 'partials/_menu.twig') }}
+    </nav>
+    <nav id="lang">
+        <ul class="selector">
+            <li><a class="icon-ES" href="{{ url('es-homepage') }}"><span>es</span></a></li>
+            <li><a class="icon-GB" href="{{ url('en-homepage') }}"><span>en</span></a></li>
+        </ul>
+    </nav>
+
+</div>
