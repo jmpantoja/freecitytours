@@ -10,6 +10,7 @@
     <title>{{ app.config.get('general/sitename') -}}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico', 'theme') }}">
     {% block css %}
         <!--[if lte IE 8]>
         <script src="{{ asset('js/ie/html5shiv.js', 'theme') }}"></script><![endif]-->
