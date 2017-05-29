@@ -33,30 +33,31 @@ class ReserveManager
 
     public function create(array $data)
     {
-        dump($data);
-        die();
+        $data['time'] = $data['time'] ?? '12:00';
+
         $reserve = $this->newReserve($data);
         $this->save($reserve);
+        $this->sendMail($data);
     }
 
 
-    private function sendMail(array $data){
-        $body = $this->app->render('mail.twig', $data);
+    private function sendMail(array $data)
+    {
 
-        die();
-        $mailer = $this->app['mailer'];
+        $body = (string)$this->app['render']->render('mail.twig', $data);
+
+        $from = $this->app['config']->get('general/reserves/mail/from');
+        $to = $this->app['config']->get('general/reserves/mail/to');
+        $subject = $this->app['config']->get('general/reserves/mail/subject');
 
         $message = \Swift_Message::newInstance()
-            ->setSubject('Nueva reserva')
-            ->setFrom(array('reservas@jerezfreecitytours.com'))
-            ->setTo(array('000.micorreo@gmail.com'))
-            ->setBody('<b>asdadad</b>', 'text/html');
+            ->setSubject($subject)
+            ->setFrom(array($from))
+            ->setTo(array($to))
+            ->setBody($body, 'text/html');
 
-        $response = $this->app['mailer']->send($message);
+        $this->app['mailer']->send($message);
 
-        dump($response);
-
-        die('x');
     }
 
     /**
@@ -108,7 +109,6 @@ class ReserveManager
         $storage = $this->app['storage.legacy'];
         $storage->saveContent($reserve);
     }
-
 
 
     public function dateToArray(\DateTime $date)

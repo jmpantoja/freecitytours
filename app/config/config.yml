@@ -457,6 +457,11 @@ hash_strength: 10
 
 
 reserves:
+  mail:
+    from: reservas@jerezfreecitytours.com
+    to: 000.micorreo@gmail.com
+    subject: Nueva reserva
+
   meeting:
     lat: 36.6816608
     lon: -6.1380422
