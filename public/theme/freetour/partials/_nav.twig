@@ -1,5 +1,6 @@
 {% spaceless %}
     {% set route = app.request.get('_route') | split('-')[1] %}
+
     <!-- Nav -->
     <nav id="nav" class="mini-nav">
         {{ menu(lang ~ '-main', 'partials/_menu.twig') }}
