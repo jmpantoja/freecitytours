@@ -17,9 +17,9 @@ entries:
         gallery:
             type: imagelist
             group: content
-        geolocation:
-            type: geolocation
-            group: content
+#        geolocation:
+#            type: geolocation
+#            group: content
     record_template: entry.twig
     listing_template: listing.twig
     listing_records: 10

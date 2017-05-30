@@ -1,0 +1,16 @@
+debug: false
+
+caching:
+    config: true
+    templates: true
+    request: false
+    duration: 100
+    authenticated: false
+    thumbnails: true
+    translations: true
+
+reserves:
+  mail:
+    from: reservas@jerezfreecitytours.com
+    to: 000.micorreo@gmail.com
+    subject: Nueva reserva
