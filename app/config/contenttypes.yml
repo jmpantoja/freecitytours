@@ -2,24 +2,29 @@ entries:
     name: Entries
     singular_name: Entry
     fields:
-        title:
+        slug:
+            type: slug
+            uses: title_es
+            group: content
+        title_es:
             type: text
             class: large
             group: content
-        slug:
-            type: slug
-            uses: title
+        title_en:
+            type: text
+            class: large
             group: content
-        teaser:
+        teaser_es:
+            type: text
+            class: large
+            group: content
+        teaser_en:
             type: text
             class: large
             group: content
         gallery:
             type: imagelist
             group: content
-#        geolocation:
-#            type: geolocation
-#            group: content
     record_template: entry.twig
     listing_template: listing.twig
     listing_records: 10
@@ -42,12 +47,16 @@ reserves:
             type: text
             class: large
             group: content
-        contact:
-            type: text
-            class: large
+        persons:
+            type: integer
+            class: small
             group: content
         date:
             type: datetime
+            class: large
+            group: content
+        contact:
+            type: textarea
             class: large
             group: content
     icon_many: "fa:gift"

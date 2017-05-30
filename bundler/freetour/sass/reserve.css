@@ -5,84 +5,103 @@
     margin-bottom: 1em;
 }
 
-#reserve .info .col{
+#reserve .info .col {
     margin: 0.5em;
-    float:left;
+    float: left;
     width: 48%;
 }
 
 .card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
 }
 
 /* Add some padding inside the card container */
-.card .desc{
+.card .desc {
     padding: 2px 16px;
     margin-bottom: 0;
 }
 
-.card .desc a.marker{
-    float:right;
+.card .desc a.marker {
+    float: right;
 }
 
 #map {
     display: block;
     height: 21em;
     background-image: url('../images/staticmap.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 /* Reserve */
-#reserve{
+#reserve {
     margin-top: 5em;
 }
 
-#reserve .widget{
+#reserve .widget {
     margin: 1em 1em auto 1em;
     padding: 1em 6em;
     padding: 1em 6em;
 }
 
-#reserve .widget h2{
+#reserve .widget h2 {
     margin-bottom: 0.5em;
     text-align: center;
 }
 
+#reserve .widget ul li label {
+    float: left;
+    width: 40%;
+    margin: 0.3em 0 0.3em;
+}
+
+#reserve .widget ul li.form-date ul li {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+#reserve .widget ul li input,
+#reserve .widget ul li select
+{
+    height: 3em;
+    padding: 0 1em;
+}
+
+#reserve .widget ul li input,
+#reserve .widget ul li select,
+#reserve .widget ul li textarea
+{
+    border-color: lightgrey;
+}
+
+#reserve .widget ul li.form-date ul li.date {
+    width: 57%;
+}
+
+#reserve .widget ul li.form-date ul li.time {
+    width: 40%;
+}
 
 #reserve .widget ul li{
-    height: 5em;
+    padding-top: 1em;
 }
 
-#reserve .widget ul li label{
-    float: left;
-    width: 14%;
-    margin: 0.3em 0  0.3em;
-}
 
-#reserve .widget ul li input, #reserve .widget ul li select{
-    float: right;
-    width: 85%;
-    height: 2.5em;
-    padding: 0 1em 0 1em;
-}
-
-#reserve .widget ul li.submit input{
+#reserve .widget ul li.submit input {
     width: 100%;
     font-weight: bold;
 }
 
-#reserve .widget label.required:after{
-    content:"*";
-    color:red;
+#reserve .widget label.required:after {
+    content: "*";
+    color: red;
     padding: 0.5em;
 }
 
-
-.calendar{
+.calendar {
     margin-bottom: 1em;
     height: 7em;
     width: 100%;
@@ -106,19 +125,19 @@
     margin: 0 1em 0 11em;
 }
 
-.calendar .content .period{
+.calendar .content .period {
     font-weight: bold;
     margin-bottom: 0.5em;
 }
 
-.calendar .content table{
+.calendar .content table {
     width: 100%;
 }
-.calendar .content table td{
-    border: solid 1px rgba(0,0,0,0.2);
+
+.calendar .content table td {
+    border: solid 1px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
-
 
 /* Increase the font-size of a span element */
 .calendar span {
@@ -126,20 +145,18 @@
     margin-right: 15px;
 }
 
-
 @media screen and (max-width: 991px) {
-    #reserve .info .col{
+    #reserve .info .col {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 1560px) {
-    .calendar .content .period{
+    .calendar .content .period {
         font-size: 16px;
     }
 
 }
-
 
 /* Add media queries for responsiveness. This will center both the text and the image inside the container */
 @media (max-width: 500px) {
@@ -154,30 +171,30 @@
     }
 }
 
-
 @media screen and (min-width: 839px) {
-    #reserve .widget{
+    #reserve .widget {
         margin: auto;
         max-width: 50em;
     }
 }
 
 @media screen and (max-width: 736px) {
-    #reserve .widget ul li{
+    #reserve .widget ul li {
         margin-bottom: 1em;
     }
 
-    #reserve .widget ul li label, #reserve .widget ul li input, #reserve .widget ul li select{
+    #reserve .widget ul li label, #reserve .widget ul li input, #reserve .widget ul li select {
         width: 100%;
     }
-    #reserve .widget ul li.submit{
+
+    #reserve .widget ul li.submit {
         margin-top: 2em;
     }
 }
 
 @media screen and (max-width: 1280px) {
     .calendar .image {
-        background-position:-19px -12px;
+        background-position: -19px -12px;
     }
 }
 
@@ -194,7 +211,7 @@
         padding: 1em 1em;
     }
 
-    #reserve .widget{
+    #reserve .widget {
         padding: 1em 1em;
     }
 

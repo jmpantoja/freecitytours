@@ -3,16 +3,16 @@
 <section class="carousel">
     <div class="reel">
 
-        {% setcontent entries = 'entries' limit 10 order '-datecreated' %}
+        {% setcontent entries = 'entries' limit 10 order 'datecreated' %}
         {% for entry in entries %}
             {% set url = url(lang ~ '-places') %}
 
             <article>
                 <a href="{{ url }}" class="image featured"><img src="{{ thumbnail(entry.gallery[0].filename, 400, 320) }}" alt="" /></a>
                 <header>
-                    <h3><a href="{{ url }}">{{ entry.title }}</a></h3>
+                    <h3><a href="{{ url }}">{{ entry.get('title_' ~ lang ) }}</a></h3>
                 </header>
-                <p> &nbsp;</p>
+                <p> {{ entry.get('teaser_' ~ lang ) }}&nbsp;</p>
             </article>
 
         {% endfor %}

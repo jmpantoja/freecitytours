@@ -35,13 +35,18 @@ class PlacesManager
     {
         $photos = [];
 
-        for($i=1; $i<19; $i++){
-            $num = sprintf('%02d', $i);
-            $photos[] = [
-                'image'=>"photo$num.jpg",
-                'title'=>"este es el titulo $num",
-                'description'=>"esta es la descripción $num"
-            ];
+        $repo = $this->app['storage']->getRepository('entries');
+
+        foreach ($repo->findAll() as $entry) {
+
+            foreach ($entry['gallery'] as $image) {
+                $photos[] = [
+                    'image' => $image['filename'],
+                    'title' => $entry['title'],
+                    'description' => $entry['teaser']
+                ];
+            }
+
         }
 
         return $photos;

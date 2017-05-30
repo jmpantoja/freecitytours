@@ -1,14 +1,5 @@
 {% extends 'partials/_master.twig' %}
 
-{% block js %}
-    {{ parent() }}
-    <script src="{{ asset('js/modernizr.custom.js', 'theme') }}"></script>
-    <script src="{{ asset('js/grid.js', 'theme') }}"></script>
-    <script>
-
-    </script>
-{% endblock js %}
-
 {% block main %}
     {{ include('partials/_nav.twig') }}
 

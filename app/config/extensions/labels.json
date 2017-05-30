@@ -39,6 +39,10 @@
         "en": "Name of person booking",
         "es": "Nombre de la persona que reserva"
     },
+    "form_num_label": {
+        "en": "Number of people",
+        "es": "Número de personas"
+    },
     "form_submit_label": {
         "en": "Reserve now",
         "es": "Reservar ahora"
@@ -67,6 +71,14 @@
         "en": "M",
         "es": "L"
     },
+    "person_plural": {
+        "en": "persons",
+        "es": "personas"
+    },
+    "person_single": {
+        "en": "people",
+        "es": "persona"
+    },
     "reserve_title": {
         "en": "Reserve now",
         "es": "Reserva ahora"
@@ -78,6 +90,10 @@
     "slogan": {
         "en": "Discover Jerez",
         "es": "Descubre Jerez"
+    },
+    "slogan_long": {
+        "en": "Reserve now and Discover Jerez",
+        "es": "Reserva ahora y Descubre Jerez"
     },
     "start": {
         "en": "Start",

@@ -57,7 +57,67 @@
 
     <div id="reserve">
 
-        <!-- Banner -->
+        <div class="widget">
+            <h2>{{ l('reserve_title') }}</h2>
+
+            {% if messages.success | length %}
+                <div class="flash flash-success">
+                    {% for msg in messages.success %}
+                        {{ l(msg) }} <br/>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+
+            <form method="post" action="#">
+                <ul>
+                    <li>
+                        <label for="form-name" class="required">{{ l('form_name_label') }}</label>
+                        <input id="form-name" type="text" name="name" placeholder="{{ l('form_name_placeholder') }}"
+                               data-validation="required"/>
+                    </li>
+                    <li>
+                        <label for="form-persons" class="required">{{ l('form_num_label') }}</label>
+                        <select id="form-persons" name="persons" data-validation="required">
+                            {% for i in range(1, 20) %}
+                            {% if i == 1 %}
+                            <option value="{{ i }}">{{ i }} {{ l('person_single') }}</option>
+                            {% else %}
+                                <option value="{{ i }}">{{ i }} {{ l('person_plural') }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </li>
+                    <li class="form-date">
+                        <ul>
+                            <li class="date">
+                                <label for="form-date" class="required">{{ l('form_date_label') }}</label>
+                                <input id="form-date" class="datepicker" type="text" name="date"
+                                       placeholder="{{ l('form_date_placeholder') }}" data-validation="required"/>
+                            </li>
+                            <li class="time">
+                                <label for="form-time" class="required">{{ l('form_time_label') }}</label>
+                                <select id="form-time" name="time" data-validation="required" disabled="disabled">
+                                    <option value="12:00">12:00h</option>
+                                    <option value="19:00">19:00h</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label for="form-contact">{{ l('form_contact_label') }}</label>
+                        <textarea id="form-contact" type="text" name="contact"
+                               placeholder="{{ l('form_contact_placeholder') }}"></textarea>
+                    </li>
+                    <li class="submit">
+                        <input type="submit" name="submit" value="{{ l('form_submit_label') }}"/>
+                    </li>
+                </ul>
+
+            </form>
+        </div>
+
+
         <section class="info">
             <article class="col">
                 <div class="card calendar">
@@ -150,52 +210,6 @@
             <br class="clear"/>
         </section>
 
-        <div class="widget">
-            <h2>{{ l('reserve_title') }}</h2>
-
-            {% if messages.success | length %}
-                <div class="flash flash-success">
-                    {% for msg in messages.success %}
-                        {{ l(msg) }} <br/>
-                    {% endfor %}
-
-                </div>
-            {% endif %}
-
-            <form method="post" action="#">
-                <ul>
-                    <li>
-                        <label for="form-name" class="required">{{ l('form_name_label') }}</label>
-                        <input id="form-name" type="text" name="name" placeholder="{{ l('form_name_placeholder') }}"
-                               data-validation="required"/>
-                    </li>
-                    <li>
-                        <label for="form-contact">{{ l('form_contact_label') }}</label>
-                        <input id="form-contact" type="text" name="contact"
-                               placeholder="{{ l('form_contact_placeholder') }}"/>
-                    </li>
-
-                    <li>
-                        <label for="form-date" class="required">{{ l('form_date_label') }}</label>
-                        <input id="form-date" class="datepicker" type="text" name="date"
-                               placeholder="{{ l('form_date_placeholder') }}" data-validation="required"/>
-                    </li>
-
-                    <li>
-                        <label for="form-time" class="required">{{ l('form_time_label') }}</label>
-                        <select id="form-time" name="time" data-validation="required" disabled="disabled">
-                            <option value="12:00">12:00h</option>
-                            <option value="19:00">19:00h</option>
-                        </select>
-                    </li>
-
-                    <li class="submit">
-                        <input type="submit" name="submit" value="{{ l('form_submit_label') }}"/>
-                    </li>
-                </ul>
-
-            </form>
-        </div>
     </div>
     <br class="clear"/>
 {% endblock main %}

@@ -57,7 +57,6 @@ class ReserveManager
             ->setBody($body, 'text/html');
 
         $this->app['mailer']->send($message);
-
     }
 
     /**
@@ -95,6 +94,7 @@ class ReserveManager
             'title' => $slug,
             'name' => $data['name'],
             'contact' => $data['contact'],
+            'persons' => $data['persons'],
             'date' => $date->format('Y-m-d G:i:a'),
             'slug' => $slug
         ];

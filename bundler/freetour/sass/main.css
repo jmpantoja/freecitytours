@@ -2582,11 +2582,13 @@
 			padding: 0 1em 3em 1em;
 			margin: 0 2em 0 0;
 			white-space: normal;
+			vertical-align: top;
 			opacity: 1.0;
 			-moz-transition: opacity 0.75s ease-in-out;
 			-webkit-transition: opacity 0.75s ease-in-out;
 			-ms-transition: opacity 0.75s ease-in-out;
 			transition: opacity 0.75s ease-in-out;
+			min-height:26.5em;
 		}
 
 			.carousel article.loading {
@@ -2602,9 +2604,6 @@
 				margin-bottom: 3em;
 			}
 
-			.carousel article header {
-				min-height: 5em;
-			}
 
 			.carousel article p {
 				text-align: center;
@@ -3122,6 +3121,7 @@
 					width: 14em;
 					padding-bottom: 2em;
 					margin: 0 0.5em 0 0;
+					vertical-align: top;
 				}
 
 					.carousel article .image {
