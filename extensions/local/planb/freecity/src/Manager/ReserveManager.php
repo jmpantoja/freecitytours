@@ -11,6 +11,9 @@
 
 namespace Bolt\Extension\PlanB\FreeCity\Manager;
 
+use Bolt\Content;
+use Bolt\Storage\Entity\Entity;
+use Ramsey\Uuid\Uuid;
 use Silex\Application;
 use Sirius\Validation\Rule\DateTime;
 
@@ -33,18 +36,45 @@ class ReserveManager
 
     public function create(array $data)
     {
-        $data['time'] = $data['time'] ?? '12:00';
+        $values = $this->sanitize($data);
 
-        $reserve = $this->newReserve($data);
-        $this->save($reserve);
-        $this->sendMail($data);
+        $avaiable = $this->calculeAvaiable($values);
+
+        if ($avaiable >= $values['persons']) {
+            $reserve = $this->newReserve($values);
+            $this->save($reserve);
+            $this->sendMail($reserve);
+            return $reserve;
+        } else {
+            return $avaiable;
+        }
+
     }
 
+    private function calculeAvaiable(array $data)
+    {
+        $maxOfReservesPerDay = $this->app['config']->get('general/reserves/max_per_day');
 
-    private function sendMail(array $data)
+        $date = $data['date'];
+
+        $builder = $this->app['storage']->createQueryBuilder();
+
+        $builder
+            ->from('bolt_reserves as content')
+            ->select('SUM(content.persons) as total')
+            ->where(sprintf('date = "%s"', $date));
+
+
+        $row = $builder->execute()->fetch();
+        $total = (int)$row['total'];
+
+        return $maxOfReservesPerDay - $total;
+    }
+
+    private function sendMail($reserve)
     {
 
-        $body = (string)$this->app['render']->render('mail.twig', $data);
+        $body = (string)$this->app['render']->render('mail.twig', ['reserve' => $reserve]);
 
         $from = $this->app['config']->get('general/reserves/mail/from');
         $to = $this->app['config']->get('general/reserves/mail/to');
@@ -63,10 +93,9 @@ class ReserveManager
      * @param array $data
      * @return mixed
      */
-    private function newReserve(array $data)
+    private function newReserve(array $values)
     {
         $storage = $this->app['storage.legacy'];
-        $values = $this->sanitize($data);
 
         $reserve = $storage->getEmptyContent('reserve');
         $reserve->setValues($values);
@@ -76,6 +105,8 @@ class ReserveManager
 
     private function sanitize(array $data): array
     {
+
+        $data['time'] = $data['time'] ?? '12:00';
         if (isset($data['date_submit'])) {
             $date = new \DateTime($data['date_submit']);
         } else {
@@ -95,8 +126,9 @@ class ReserveManager
             'name' => $data['name'],
             'contact' => $data['contact'],
             'persons' => $data['persons'],
-            'date' => $date->format('Y-m-d G:i:a'),
-            'slug' => $slug
+            'date' => $date->format('Y-m-d G:i:00'),
+            'slug' => $slug,
+            'uuid' => (Uuid::uuid4())->toString()
         ];
         return $values;
     }
@@ -149,6 +181,28 @@ class ReserveManager
             $ranges[] = [
                 'from' => $this->dateToArray($firstDay),
                 'to' => $this->dateToArray($lastDay)
+            ];
+        }
+
+
+        $builder = $this->app['storage']->createQueryBuilder();
+
+        $maxOfReservesPerDay = $this->app['config']->get('general/reserves/max_per_day');
+
+        $builder
+            ->from('bolt_reserves as A')
+            ->select('SUM(A.persons) as total, A.date')
+            ->groupBy('A.date')
+            ->where('A.date > now()')
+            ->having('total >= ' . $maxOfReservesPerDay);
+
+        $rows = $builder->execute()->fetchAll();
+
+        foreach ($rows as $row) {
+            $date = $this->dateToArray(new \DateTime($row['date']));
+            $ranges[] = [
+                'from' => $date,
+                'to' => $date
             ];
         }
 

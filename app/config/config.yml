@@ -457,6 +457,8 @@ hash_strength: 10
 
 
 reserves:
+  contact: freecitytourjerez@yahoo.es
+  max_per_day: 22
   mail:
     from: reservas@jerezfreecitytours.com
     to: 000.micorreo@gmail.com

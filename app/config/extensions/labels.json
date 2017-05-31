@@ -71,6 +71,10 @@
         "en": "M",
         "es": "L"
     },
+    "oops": {
+        "en": "d'oh!",
+        "es": "¡Cachis!"
+    },
     "person_plural": {
         "en": "persons",
         "es": "personas"
@@ -78,6 +82,14 @@
     "person_single": {
         "en": "people",
         "es": "persona"
+    },
+    "reserve_another_day": {
+        "en": "Book another day",
+        "es": "Reserva otro dia"
+    },
+    "reserve_confirm_title": {
+        "en": "Confirmed reservation",
+        "es": "Reserva confirmada"
     },
     "reserve_title": {
         "en": "Reserve now",

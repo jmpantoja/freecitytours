@@ -42,16 +42,22 @@ class FreeCityController extends Base
 
     public function reserve(Request $request)
     {
+        $lang = $this->getLang();
         $manager = $this->app['reserves.manager'];
 
         if ($request->isMethod('POST')) {
+            $route = sprintf('%s-reserve-done', $lang);
+
             $values = $request->request->all();
-            $manager->create($values);
+            $reserve = $manager->create($values);
 
-            $this->flashes()->success('form_success');
-
-            $route = $request->get('_route');
-            return $this->redirectToRoute($route);
+            if ($reserve instanceof Content) {
+                $key = $reserve->get('uuid');
+                return $this->redirectToRoute($route, ['key' => $key]);
+            } else {
+                $limit = $reserve;
+                return $this->redirectToRoute($route, ['limit' => $limit]);
+            }
         }
 
         $tomorrow = (new \DateTime())->modify('+1 day');
@@ -59,13 +65,33 @@ class FreeCityController extends Base
         return $this->app['render']->render('reserve.twig', [
             'tomorrow' => $manager->dateToArray($tomorrow),
             'disables' => $manager->getDisableDays(),
-            'summer' => $this->app['config']->get('general/reserves/summer'),
-            'messages' => [
-                'success' => $this->flashes()->get('success'),
-                'error' => $this->flashes()->get('error')
-            ]
+            'summer' => $this->app['config']->get('general/reserves/summer')
         ]);
     }
+
+    public function confirmation(Request $request)
+    {
+
+        setlocale(LC_ALL, 'en_EN');
+
+        if ($request->query->has('key')) {
+            $key = $request->get('key');
+            $reserve = $this->app['query']
+                ->getContent('reserves', ['uuid' => $key])
+                ->current();
+
+            $params = ['reserve' => $reserve];
+        } else {
+            $limit = 0;
+            if ($request->query->has('limit')) {
+                $limit = $request->get('limit');
+            }
+            $params = ['limit' => $limit];
+        }
+
+        return $this->app['render']->render('confirmation.twig', $params);
+    }
+
 
     public function places(Request $request)
     {
@@ -74,6 +100,15 @@ class FreeCityController extends Base
         return $this->app['render']->render('places.twig', [
             'photos' => $manager->getPhotos()
         ]);
+    }
+
+    /**
+     * @return array
+     */
+    private function getLang()
+    {
+        $pieces = explode('/', $this->app['paths']['current']);
+        return $pieces[3];
     }
 
 

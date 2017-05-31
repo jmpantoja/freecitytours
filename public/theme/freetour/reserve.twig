@@ -60,15 +60,6 @@
         <div class="widget">
             <h2>{{ l('reserve_title') }}</h2>
 
-            {% if messages.success | length %}
-                <div class="flash flash-success">
-                    {% for msg in messages.success %}
-                        {{ l(msg) }} <br/>
-                    {% endfor %}
-
-                </div>
-            {% endif %}
-
             <form method="post" action="#">
                 <ul>
                     <li>
@@ -174,7 +165,7 @@
                     <div class="image icon-calendar"></div>
                     <div class="content">
                         <p class="period">
-                            {{ l('calendar_winter_1') }}
+                            {{ l('calendar_winter_2') }}
                         </p>
                         <table>
                             <tr>

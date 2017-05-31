@@ -6,7 +6,9 @@
     "require": {
         "php": "^5.5.9 || ^7.0",
         "bolt/bolt": "^3.2",
-        "passwordlib/passwordlib": "^1.0@beta"
+        "passwordlib/passwordlib": "^1.0@beta",
+        "ramsey/uuid": "^3.6",
+        "twig/extensions": "^1.5"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,

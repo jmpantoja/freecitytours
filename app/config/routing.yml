@@ -38,6 +38,16 @@ es-reserve:
     defaults:
         _controller: controller.freecity:reserve
 
+en-reserve-done:
+    path: /en/reserve/confirmation
+    defaults:
+        _controller: controller.freecity:confirmation
+
+es-reserve-done:
+    path: /es/reservas/confirmacion
+    defaults:
+        _controller: controller.freecity:confirmation
+
 
 en-places:
     path: /en/places

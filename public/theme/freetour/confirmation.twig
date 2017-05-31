@@ -1,0 +1,140 @@
+{% extends 'partials/_master.twig' %}
+
+
+{% block main %}
+    {{ include('partials/_nav.twig') }}
+
+    <div id="reserve">
+        <div class="widget confirmation">
+            {% if reserve is defined %}
+                {{ block('successful') }}
+            {% else %}
+                {{ block('limit') }}
+            {% endif %}
+
+
+        </div>
+    </div>
+
+    <br class="clear"/>
+{% endblock main %}
+
+
+
+{% block successful %}
+    <h2>{{ l('reserve_confirm_title') }}</h2>
+
+    {% if lang == 'es' %}
+
+        <p>
+            Hemos registrado tu reserva correctamente.
+        </p>
+        <p>
+            Gracias por confiar en nosotros
+        </p>
+        <p>
+            Te recordamos que la visita guiada es <b>gratuita</b> y que tiene una duración aproximada de <b>hora
+                y media.</b>
+        </p>
+        <p>
+            Te esperamos
+        </p>
+        <table>
+            <tr>
+                <td><span class="fa fa-map-marker"></span></td>
+                <td>{{ l('meet point') }}</td>
+            </tr>
+            <tr>
+                <td><span class="fa fa-calendar-o"></span></td>
+                <td>{{ reserve.date|localedatetime("%A %e de %B") }} a
+                    las {{ reserve.date|localedatetime("%H:%Mh") }}</td>
+            </tr>
+        </table>
+
+    {% else %}
+
+        <p>
+            We have successfully booked your reservation.
+        </p>
+        <p>
+            Thanks for trusting us
+        </p>
+        <p>
+            We remind you that the guided tour is <b> free </b> and has an approximate duration of <b> hour and a
+                half </b>
+        </p>
+        <p>
+            We will wait for you
+        </p>
+        <table>
+            <tr>
+                <td><span class="fa fa-map-marker"></span></td>
+                <td>{{ l('meet point') }}</td>
+            </tr>
+            <tr>
+                <td><span class="fa fa-calendar-o"></span></td>
+                <td>{{ reserve.date|date("l, M dS") }} at {{ reserve.date|date("H:i") }}</td>
+            </tr>
+        </table>
+
+    {% endif %}
+    <hr class="separator"/>
+    <div class="card">
+        <p class="desc">
+            <strong>{{ l('meet point_label') }}</strong>
+            <span>{{ l('meet point') }}</span>
+            <a href="{{ app.config.get('general/reserves/meeting/url') }}" target="_blank"
+               class="icon fa-map-marker marker">
+                <span class="label">Marker</span>
+            </a>
+        </p>
+
+        <a id="map" target="_blank" href="{{ app.config.get('general/reserves/meeting/url') }}"></a>
+    </div>
+{% endblock successful %}
+
+
+{% block limit %}
+    <h2>{{ l('oops') }}</h2>
+
+    {% if lang == 'es' %}
+        <p>
+            ¡Lastima! parece que no tenemos suficientes plazas libres.
+        </p>
+        <p>
+            {% if limit == 0 %}
+                Lo sentimos mucho, pero no tenemos <b>ninguna plaza libre</b> para esta visita.
+            {% elseif limit == 1 %}
+                Lo sentimos mucho, pero solo tenemos <b>1 plaza libre</b> para esta visita.
+            {% else %}
+                Lo sentimos mucho, pero solo tenemos <b>{{ limit }} plazas libres</b> para esta visita.
+            {% endif %}
+        </p>
+        <p>
+            Prueba a volver a <a class="link" href="{{ url('es-reserve') }}">reservar otro día</a> y estaremos encantados de visitar Jerez contigo.
+        </p>
+
+    {% else %}
+        <p>
+            It seems that we do not have enough free places.
+        </p>
+        <p>
+            {% if limit == 0 %}
+                We are very sorry, but we do not have <b> no vacancies </b> for this visit.
+            {% elseif limit == 1 %}
+                We are very sorry, but we only have <b> 1 free space </b> for this visit.
+            {% else %}
+                We are very sorry, but we only have <b> {{limit}} free places </b> for this visit.
+            {% endif %}
+        </p>
+        <p>
+            Try going back to <a class="link" href="{{ url('es-reserve') }}"> book another day </a> and we'll be happy to visit Jerez with you.
+        </p>
+
+        <p class="center">
+            <a href="{{ url(lang ~ '-reserve') }}" class="button button-square">{{ l('reserve_another_day') }}</a>
+        </p>
+
+    {% endif %}
+
+{% endblock limit %}

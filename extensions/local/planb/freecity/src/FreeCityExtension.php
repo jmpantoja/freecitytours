@@ -18,6 +18,8 @@ use Silex\Application;
 use Bolt\Extension\PlanB\FreeCity\Controller\FreeCityController;
 use Bolt\Extension\SimpleExtension;
 use Silex\ControllerCollection;
+use Twig\Extensions\I18nExtension;
+use Twig\Extensions\IntlExtension;
 
 
 /**
@@ -66,7 +68,7 @@ class FreeCityExtension extends SimpleExtension
 
         return [
             'img' => [[$manager, 'imageResponsive'], ['is_safe' => ['html']]],
-            'bundler' => [[$manager, 'bundler'], ['is_safe' => ['html']]],
+            'bundler' => [[$manager, 'bundler'], ['is_safe' => ['html']]]
         ];
     }
 

@@ -59,6 +59,10 @@ reserves:
             type: textarea
             class: large
             group: content
+        uuid:
+            type: text
+            class: large
+            group: content
     icon_many: "fa:gift"
     icon_one: "fa:gift"
 
