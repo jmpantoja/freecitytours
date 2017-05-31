@@ -3,11 +3,7 @@
 {% block js %}
     {{ parent() }}
     <script type="text/javascript" src="{{ bundler('js/form.js') }}"></script>
-    {#<script type="text/javascript" src="{{ asset('js/jquery.form-validator.js', 'theme') }}"></script>#}
-    {#<script type="text/javascript" src="{{ asset('js/pickadate/legacy.js', 'theme') }}"></script>#}
-    {#<script type="text/javascript" src="{{ asset('js/pickadate/picker.js', 'theme') }}"></script>#}
-    {#<script type="text/javascript" src="{{ asset('js/pickadate/picker.date.js', 'theme') }}"></script>#}
-    {#<script type="text/javascript" src="{{ asset('js/pickadate/picker.time.js', 'theme') }}"></script>#}
+
     {% if lang == 'es' %}
         <script type="text/javascript" src="{{ asset('js/pickadate/translations/es_ES.js', 'theme') }}"></script>
     {% endif %}
@@ -45,7 +41,8 @@
             });
 
             $.validate({
-                lang: '{{ lang }}'
+                lang: '{{ lang }}',
+                validateOnBlur : false
             });
         });
         //]]>
