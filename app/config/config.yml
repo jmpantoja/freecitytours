@@ -464,6 +464,19 @@ reserves:
     to: 000.micorreo@gmail.com
     subject: Nueva reserva
 
+  friends:
+    casa_gabriela:
+      ico: icon-casa-gabriela
+      href: "#"
+
+    parra_vieja:
+      ico: icon-parra-vieja
+      href: https://m.facebook.com/laparravieja/
+
+    don_tapa:
+      ico: icon-don-tapa
+      href: https://www.facebook.com/Restaurante-Bar-Don-Tapa-187357671418900/?ref=ts&fref=ts
+
   meeting:
     lat: 36.6816608
     lon: -6.1380422

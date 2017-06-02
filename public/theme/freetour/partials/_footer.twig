@@ -1,4 +1,3 @@
-
 <!-- Footer -->
 <div id="footer">
     <div class="container">
@@ -9,17 +8,30 @@
                 <!-- Contact -->
                 <section class="contact">
                     <header>
-                        <h3><a href="{{ url('homepage') }}" id="logo"><p>{{ app.config.get('theme/title') }}</p></a></h3>
+                        <h3><a href="{{ url('homepage') }}" id="logo"><p>{{ app.config.get('theme/title') }}</p></a>
+                        </h3>
                     </header>
                     <p>{{ l('slogan_long') }}</p>
                     <ul class="icons">
                         <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
                         <li><a href="#" class="icon fa-envelope"><span class="label">Mail</span></a></li>
                         <li>
-                            <a href="{{ app.config.get('general/reserves/meeting/url') }}" target="_blank" class="icon fa-map-marker">
+                            <a href="{{ app.config.get('general/reserves/meeting/url') }}" target="_blank"
+                               class="icon fa-map-marker">
                                 <span class="label">Marker</span>
                             </a>
                         </li>
+                    </ul>
+
+                </section>
+
+                <section class="friends">
+                    <ul class="logos">
+                        {% set friends = app.config.get('general/reserves/friends') %}
+                        {% for name, friend in  friends %}
+                        <li><a href="{{ friend.href }}" target="__blank" class="{{ friend.ico }}">name</a></li>
+                        {% endfor %}
+
                     </ul>
                 </section>
 
