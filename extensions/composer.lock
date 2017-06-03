@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c244c9a85978752f49d341f2e38ec1d",
+    "content-hash": "a5e6aaf4cc2ec6c294e7296dc66f32d0",
     "packages": [
+        {
+            "name": "bobdenotter/seo",
+            "version": "v0.14.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobdenotter/seo.git",
+                "reference": "1d9bd647137124852c799470754b4054e3b88f99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobdenotter/seo/zipball/1d9bd647137124852c799470754b4054e3b88f99",
+                "reference": "1d9bd647137124852c799470754b4054e3b88f99",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/bolt": "^3.0"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "bolt-assets": "web",
+                "bolt-class": "Bolt\\Extension\\BobdenOtter\\Seo\\SeoExtension"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Extension\\BobdenOtter\\Seo\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bob den Otter",
+                    "email": "bob@twokings.nl"
+                }
+            ],
+            "description": "An extension to easily manage SEO title, meta description and OG tags.",
+            "support": {
+                "source": "https://github.com/bobdenotter/seo/tree/v0.14.2",
+                "issues": "https://github.com/bobdenotter/seo/issues"
+            },
+            "time": "2017-04-06T15:36:42+00:00"
+        },
         {
             "name": "bolt/labels",
             "version": "3.0.7",

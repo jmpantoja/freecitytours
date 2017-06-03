@@ -33,8 +33,9 @@
         }
     },
     "require": {
+        "bobdenotter/seo": "^0.14.2",
         "bolt/labels": "^3.0",
-        "wikimedia/composer-merge-plugin": "^1.4"
+        "wikimedia/composer-merge-plugin": "^1.3"
     },
     "scripts": {
         "post-autoload-dump": "Bolt\\Composer\\EventListener\\PackageEventListener::dump",

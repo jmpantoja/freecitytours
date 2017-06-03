@@ -1,4 +1,4 @@
-{#{% spaceless %}#}
+{% spaceless %}
 {% set lang = app.paths.current|split('/')[3] %}
 
 {% if lang not in ['en', 'es'] %}
@@ -12,6 +12,19 @@
     <title>{{ app.config.get('general/sitename') -}}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Jerez es una ciudad llena de historia, cultura y turismo, descubrela gratis en nuestras visitas guiadas.">
+    <meta name="description" content="Jerez is a city full of history, culture and tourism, discover it free on our guided tours.">
+
+    <meta property="og:title" content="{{ app.config.get('general/sitename') }}" />
+    <meta property="og:type" content="activity" />
+    <meta property="og:description" content="Jerez es una ciudad llena de historia, cultura y turismo, descubrela gratis en nuestras visitas guiadas." />
+
+    <meta property="og:image" content="{{ asset('images/header.jpg', 'theme') }}" />
+
+    <meta property="og:site_name" content="{{ app.config.get('general/sitename') }}" />
+
+
+
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico', 'theme') }}">
     {% block css %}
         <!--[if lte IE 8]>
@@ -47,4 +60,4 @@
 
 </body>
 </html>
-{#{% endspaceless %}#}
+{% endspaceless %}

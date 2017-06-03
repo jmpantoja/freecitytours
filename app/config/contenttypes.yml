@@ -1,4 +1,5 @@
 entries:
+    searchable: false
     name: Entries
     singular_name: Entry
     fields:
@@ -25,6 +26,9 @@ entries:
         gallery:
             type: imagelist
             group: content
+        seo:
+            type: seo
+            group: "SEO settings"
     record_template: entry.twig
     listing_template: listing.twig
     listing_records: 10
@@ -35,6 +39,7 @@ entries:
     icon_one: "fa:gift"
 
 reserves:
+    searchable: false
     name: Reserves
     singular_name: Reserve
     fields:
