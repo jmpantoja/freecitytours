@@ -6,7 +6,7 @@
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>http://www.jerezfreecitytours.com/es/reservas/loc>
+		<loc>http://www.jerezfreecitytours.com/es/reservas</loc>
 		<changefreq>weekly</changefreq>
 		<priority>1</priority>
 	</url>
@@ -15,7 +15,6 @@
 		<changefreq>weekly</changefreq>
 		<priority>1</priority>
 	</url>
-
 	<url>
 		<loc>http://www.jerezfreecitytours.com/en</loc>
 		<changefreq>weekly</changefreq>
