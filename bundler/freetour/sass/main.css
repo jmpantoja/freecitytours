@@ -3149,5 +3149,6 @@ ul.logos li{
 ul.logos li a{
 	display: inline-block;
     border-radius: 0.5em;
-	height: 150px;
+	height: 80px;
+	text-indent: -9999em;
 }

@@ -1,3 +1,3 @@
 {
-  "vendor.js": "vendor-a3a8baa9af.js"
+  "vendor.js": "vendor-b806bdbf54.js"
 }

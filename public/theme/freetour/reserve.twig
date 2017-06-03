@@ -2,12 +2,6 @@
 
 {% block js %}
     {{ parent() }}
-    <script type="text/javascript" src="{{ bundler('js/form.js') }}"></script>
-
-    {% if lang == 'es' %}
-        <script type="text/javascript" src="{{ asset('js/pickadate/translations/es_ES.js', 'theme') }}"></script>
-    {% endif %}
-
     <script type="text/javascript">
         //<![CDATA[
         $(function () {
@@ -55,7 +49,7 @@
     <div id="reserve">
 
         <div class="widget">
-            <h2>{{ l('reserve_title') }}</h2>
+            <h2>{{ l('booking_title') }}</h2>
 
             <form method="post" action="#">
                 <ul>

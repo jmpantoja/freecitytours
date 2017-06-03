@@ -6,7 +6,7 @@ en-main:
       route: en-homepage
       class: first
 
-    - label: Reserve
+    - label: Booking
       route: en-reserve
       class: reserve
 
@@ -25,24 +25,3 @@ es-main:
 
     - label: Lugares
       route: es-places
-
-
-
-#    - label: Second item
-#      path: entry/1
-#      submenu:
-#          - label: Sub 1
-#            path: entry/2
-#          - label: Sub 2
-#            class: menu-item-class
-#            path: entry/3
-#          - label: Sub 3
-#            path: entry/4
-#          - label: Sub 4
-#            class: sub-class
-#            path: page/3
-#    - label: All pages
-#      path: pages/
-#    - label: The Bolt site
-#      link: http://bolt.cm
-#      class: last

@@ -22,7 +22,7 @@
 
 
 {% block successful %}
-    <h2>{{ l('reserve_confirm_title') }}</h2>
+    <h2>{{ l('booking_confirm_title') }}</h2>
 
     {% if lang == 'es' %}
 
@@ -132,7 +132,7 @@
         </p>
 
         <p class="center">
-            <a href="{{ url(lang ~ '-reserve') }}" class="button button-square">{{ l('reserve_another_day') }}</a>
+            <a href="{{ url(lang ~ '-reserve') }}" class="button button-square">{{ l('book_another_day') }}</a>
         </p>
 
     {% endif %}

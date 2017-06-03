@@ -13,7 +13,7 @@
     },
     "description": {
         "en": "Jerez is a wonderful city with a long history you will discover with our tour guides. An hour and a half walk that gets short when going all over the history of its main monuments, its culture, the wine and its most notable characteres. This is an ideal route for one-day tourists or for those interested in getting a general impression of the city before starting their holidays.",
-        "es": "Jerez es una ciudad marivillosa con mucha historia que nuestros guías te ayudarán a descubrir. Un paseo de una hora y media que se hará corto recorriendo la historia de los principales monumentos, su cultura, el vino y sus personajes más insignes. Esta ruta es ideal para quien tiene poco tiempo o quien quiere hacerse una idea general de la ciudad antes de empezar sus vacaciones"
+        "es": "Jerez es una ciudad maravillosa con mucha historia que nuestros guías te ayudarán a descubrir. Un paseo de una hora y media que se hará corto recorriendo la historia de los principales monumentos, su cultura, el vino y sus personajes más insignes. Esta ruta es ideal para quien tiene poco tiempo o quien quiere hacerse una idea general de la ciudad antes de empezar sus vacaciones"
     },
     "form_contact_label": {
         "en": "Comments:",
@@ -44,12 +44,8 @@
         "es": "Número de personas"
     },
     "form_submit_label": {
-        "en": "Reserve now",
+        "en": "Book now",
         "es": "Reservar ahora"
-    },
-    "form_success": {
-        "en": "Reservation made successfully",
-        "es": "Reserva realizada con exito"
     },
     "form_time_label": {
         "en": "Time:",
@@ -83,16 +79,16 @@
         "en": "people",
         "es": "persona"
     },
-    "reserve_another_day": {
+    "book_another_day": {
         "en": "Book another day",
         "es": "Reserva otro dia"
     },
-    "reserve_confirm_title": {
-        "en": "Confirmed reservation",
+    "booking_confirm_title": {
+        "en": "Confirmed booking",
         "es": "Reserva confirmada"
     },
-    "reserve_title": {
-        "en": "Reserve now",
+    "booking_title": {
+        "en": "Book now",
         "es": "Reserva ahora"
     },
     "saturday": {
@@ -104,7 +100,7 @@
         "es": "Descubre Jerez"
     },
     "slogan_long": {
-        "en": "Reserve now and Discover Jerez",
+        "en": "Book now and Discover Jerez",
         "es": "Reserva ahora y Descubre Jerez"
     },
     "start": {

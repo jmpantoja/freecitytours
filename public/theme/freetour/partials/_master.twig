@@ -1,3 +1,4 @@
+{#{% spaceless %}#}
 {% set lang = app.paths.current|split('/')[3] %}
 
 {% if lang not in ['en', 'es'] %}
@@ -15,7 +16,6 @@
     {% block css %}
         <!--[if lte IE 8]>
         <script src="{{ asset('js/ie/html5shiv.js', 'theme') }}"></script><![endif]-->
-
         <link rel="stylesheet" href="{{ bundler('css/vendor.css') }}"/>
         <!--[if lte IE 8]>
         <link rel="stylesheet" href="{{ asset('css/ie8.css', 'theme') }}"/><![endif]-->
@@ -32,10 +32,19 @@
 
 {% block js %}
     <script type="text/javascript" src="{{ bundler('js/vendor.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/skel.min.js', 'theme') }}"></script>
-    {#<!--[if lte IE 8]><script type="text/javascript" src="{{ asset('js/ie/respond.min.js', 'theme') }}"></script><![endif]-->#}
-    <script type="text/javascript" src="{{ bundler('js/main.js') }}"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-47003324-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
 {% endblock js %}
 
 </body>
 </html>
+{#{% endspaceless %}#}
