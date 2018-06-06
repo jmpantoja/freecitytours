@@ -27,7 +27,7 @@ entries:
             type: imagelist
             group: content
         seo:
-            type: seo
+            type: text
             group: "SEO settings"
     record_template: entry.twig
     listing_template: listing.twig
@@ -61,6 +61,10 @@ reserves:
             class: large
             group: content
         contact:
+            type: textarea
+            class: large
+            group: content
+        comment:
             type: textarea
             class: large
             group: content

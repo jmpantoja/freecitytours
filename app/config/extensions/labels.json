@@ -16,12 +16,20 @@
         "es": "Jerez es una ciudad maravillosa con mucha historia que nuestros guías te ayudarán a descubrir. Un paseo de una hora y media que se hará corto recorriendo la historia de los principales monumentos, su cultura, el vino y sus personajes más insignes. Esta ruta es ideal para quien tiene poco tiempo o quien quiere hacerse una idea general de la ciudad antes de empezar sus vacaciones"
     },
     "form_contact_label": {
-        "en": "Comments:",
-        "es": "Comentarios:"
+        "en": "Contact:",
+        "es": "Contacto:"
     },
     "form_contact_placeholder": {
         "en": "email or contact phone",
         "es": "email o teléfono de contacto"
+    },
+    "form_comment_label": {
+        "en": "Comment:",
+        "es": "Comentario:"
+    },
+    "form_comment_placeholder": {
+        "en": "Additional comments",
+        "es": "Comentarios adicionales"
     },
     "form_date_label": {
         "en": "Date:",

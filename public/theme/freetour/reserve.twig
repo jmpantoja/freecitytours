@@ -87,10 +87,20 @@
                         </ul>
                     </li>
                     <li>
-                        <label for="form-contact">{{ l('form_contact_label') }}</label>
-                        <textarea id="form-contact" type="text" name="contact"
-                               placeholder="{{ l('form_contact_placeholder') }}"></textarea>
+                        <label for="form-contact" class="required">{{ l('form_contact_label') }}</label>
+			<input id="form-contact" type="text" name="contact"
+                               placeholder="{{ l('form_contact_placeholder') }}"
+                               data-validation="required"
+                        />
+
                     </li>
+
+                    <li>
+                        <label for="form-comment">{{ l('form_comment_label') }}</label>
+                        <textarea id="form-comment" type="text" name="comment"
+                               placeholder="{{ l('form_comment_placeholder') }}"></textarea>
+                    </li>
+
                     <li class="submit">
                         <input type="submit" name="submit" value="{{ l('form_submit_label') }}"/>
                     </li>
