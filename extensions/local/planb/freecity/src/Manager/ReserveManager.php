@@ -42,6 +42,7 @@ class ReserveManager
 
         if ($avaiable >= $values['persons']) {
             $reserve = $this->newReserve($values);
+
             $this->save($reserve);
             $this->sendMail($reserve);
             return $reserve;
@@ -121,15 +122,18 @@ class ReserveManager
 
         $slug = sprintf('%s (%s)', $data['name'], $dateString);
 
+
         $values = [
             'title' => $slug,
             'name' => $data['name'],
             'contact' => $data['contact'],
+            'comment' => $data['comment'] ?? '',
             'persons' => $data['persons'],
             'date' => $date->format('Y-m-d G:i:00'),
             'slug' => $slug,
             'uuid' => (Uuid::uuid4())->toString()
         ];
+
         return $values;
     }
 
