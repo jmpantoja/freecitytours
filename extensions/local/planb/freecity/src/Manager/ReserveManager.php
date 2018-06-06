@@ -83,7 +83,7 @@ class ReserveManager
         $message = \Swift_Message::newInstance()
             ->setSubject($subject)
             ->setFrom(array($from))
-            ->setTo(array($to))
+            ->setTo((array) $to)
             ->setBody($body, 'text/html');
 
         $this->app['mailer']->send($message);

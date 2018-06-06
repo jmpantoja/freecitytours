@@ -12,5 +12,7 @@ caching:
 reserves:
   mail:
     from: reservas@jerezfreecitytours.com
-    to: freecitytourjerez@yahoo.es
+    to: 
+      - freecitytourjerez@yahoo.es
+      - jmpantoja@gmail.com
     subject: Nueva reserva
